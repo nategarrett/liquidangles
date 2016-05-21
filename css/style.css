@@ -1,0 +1,79 @@
+.reveal {
+    background-image: url(../img/servers-bg.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: bottom center;
+    background-color: #fff;
+    background-size: cover;
+}
+
+.reveal p {
+    font-size: .7em!important;
+}
+
+h1 {
+    font-size:1.5em!important;
+}
+
+h2 {
+    font-size:1.3em!important
+}
+
+h3 {
+    font-size:1.1em!important;
+}
+
+.slides {
+    background-color: rgba(128, 129, 144, 0.94);
+    height: 600px !important;
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border: 5px #fff solid!important;
+}
+
+section p, section h1, h2, h3, h4, h5, section ul {
+    padding: 0 40px!important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cabin', sans-serif!important;
+    letter-spacing: 0!important;
+}
+
+#switch {
+    float:right;
+    padding-right: 75px;
+
+    margin: 0px;
+    background: none;
+    border: 0px;
+    box-shadow: none;
+}
+
+.reveal section img {
+    margin: 0px!important;
+    background: none;
+    border: none!important;
+    box-shadow: none;
+}
+
+#intercom {
+    background-color:#333333!important;
+}
+
+#refs p {
+    font-size: .6em!important;
+}
+
+.sm-image {
+    width: 40%;
+}
+
+li {
+    font-size:.6em!important;
+}
+
+.reveal a {
+    color: #A5A3A3 !important;
+}

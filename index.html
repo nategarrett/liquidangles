@@ -1,5 +1,232 @@
-Hello, this is a test to the world...hello world
+<!doctype html>
+<html lang="en">
 
-<h4>See how html tags work</h4>
+<head>
+    <meta charset="utf-8">
 
-<h5>one more time</h5>
+    <title>Deployment Research Project</title>
+
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Nate Garrett">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+    <!-- Google Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Cabin:400,500' rel='stylesheet' type='text/css'>
+
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<div class="reveal">
+
+    <div class="header">
+
+    </div>
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+            <section>
+                <h1>Deployment</h1>
+                <h3>Research Project</h3>
+                <p>
+                    <small>Created by Nate Garrett</small>
+                </p>
+            </section>
+
+        <section>
+            <section>
+                <h2>VSCO </h2>
+            </section>
+
+            <!-- fragments - bullet points-->
+                <section id="fragments">
+                        <h3>Mobile app deployment presents unique challenges</h3>
+
+                        <p class="fragment">Mobile user have an incredibly low tolerance for buggy apps</p>
+                        <p class="fragment">ONLY 16% are willing to try a failing app more than twice</p>
+                        <p class="fragment">App stores make responding to problems a difficult hurdle, requiring additional time-costly reviews that can take days.</p>
+
+                        <aside class="notes">
+                            This slide has fragments which are also stepped through in the notes window.
+                        </aside>
+
+                </section>
+
+                <section>
+                    <h2>The Solution?</h2>
+                </section>
+
+            <section>
+                <h3>Deciders aka Featured Flags</h3>
+                <p>Deciders, also called "Featured Flags" are a technique that allows teams to enable or disable features at any time, without having to deploy an update. Instead they can deploy a feature or update in an off state, then flip a switch to turn it on to any subset of users, immediately – no need to wait on app store approvals.  </p>
+            </section>
+
+            <section>
+                <h3>Changes and rollbacks as easy as flipping a switch</h3>
+                <img src="img/switch.png" id="switch">
+                <p>Using Decider to turn off new updates is incredibly easy. One flip of a switch and end users’ apps will instantly roll back to their previous state.</p>
+            </section>
+
+            <section>
+                <h3>Benefits</h3>
+                <p>Some of the benefits of using featured flags are:</p>
+                <ul>
+                    <li>Take more risks, knowing that they can respond quickly to unforeseen issues</li>
+                    <li>Instantly control staged rollouts and rollbacks on a granular level</li>
+                    <li>Segment and test on specific users</li>
+                </ul>
+            </section>
+        </section>
+
+        <!-- END current company and begin new company deployment plan -->
+
+        <section id="intercom">
+            <section >
+                <h2>Intercom</h2>
+            </section>
+
+            <section>
+                <p>Intercom also uses features flags in addition to using a feedback loop. The feedback loop allows them to evaluate
+                how people use the new feature, how the code performs in production and whether or not it's even a good idea.</p>
+                <img src="img/feedback-loop.png" class="sm-image">
+            </section>
+
+            <section>
+                <h3>Automatic Deployment System</h3>
+                <p>Intercoms deployment plan gets the job done from end to end in less than 10 minutes</p>
+                <img src="img/intercom-deploy.png" class="sm-image">
+            </section>
+
+            <section>
+                <h3>Here's how it works:</h3>
+                <p>After a code review on GitHub, engineers merge their features into the master branch. GitHub sends a webhook to Codeship, who run their test suite for them to make sure there are no regressions in existing behaviour. GitHub also sends a webhook to a tool they built called Muster, which prepares the latest version of the code for release.</p>
+                <p>Once the tests have run successfully, Codeship sends a webhook to Muster, and the code is pushed out to their production environment of about 200 EC2 instances.</p>
+            </section>
+
+            <section>
+                <h3>Benefits of this system</h3>
+                <p>Their tried and tested system provides many benefits, specifically:</p>
+                <ul>
+                    <li>Helps new engineers</li>
+                    <li>Cuts out bad behavior</li>
+                    <li>Optimised for deployment rate - less than 10 minutes!</li>
+                </ul>
+            </section>
+        </section>
+
+        <!-- END current company and begin new company deployment plan -->
+
+        <section id="teamwork">
+            <section>
+                <h2>Teamwork Chat</h2>
+            </section>
+
+            <section>
+                <p>Teamwork uses a system which includes CodeShip and Amazon S3 buckets</p>
+            </section>
+
+            <section>
+                <p>First, they bump the version number and merge the changes into their master branch</p>
+                <p>Second; their continious integration and deployment (CI/CD) server i.e. CodeShip, compiles and tests the merge commit</p>
+                <p>If the tests pass, CodeShip goes on to send the new files up to an Amazon S3 bucket</p>
+            </section>
+
+            <section>
+                <h3>What is CodeShip?</h3>
+                <p>Codeship is a hosted continuous delivery service that focuses on speed, reliability and simplicity. You configure Codeship to build and deploy your application from GitHub to the staging or the production platform of your choice. </p>
+            </section>
+
+            <section>
+                <p>By integrating CodeShip and Amazon S3 buckets, Teamwork seamlessly deploys their apps from development to staging to production</p>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h3>Conclusion</h3>
+                <p>While each company uses a unique deployment plan, the core techniques seem very similar</p>
+                <ul>
+                    <li>Combine code from multiple developers using a system such as Github</li>
+                    <li>Test the new code in a staging environment, usually to a smaller segmented group</li>
+                    <li>If tests pass, push the staging environment to a production environment with the caveat that rollbacks can be done quickly, and with little to no negative experience to the end user</li>
+                </ul>
+            </section>
+        </section>
+
+        <section>
+            <section id="refs">
+                <h3>References:</h3>
+
+                <p>Wang, K. (2016, January 04). How VSCO & Twitter Deploy New Features to Millions of Mobile Users - Apptimize. Retrieved May 20, 2016, from <a href="http://apptimize.com/blog/2016/01/how-vsco-twitter-deploy-new-features-to-millions-of-mobile-users/" target="_blank">http://apptimize.com/blog/2016/01/how-vsco-twitter-deploy-new-features-to-millions-of-mobile-users/</a> </p>
+                <p>
+                    Kenny, E. (2015). Why Continuous Deployment Just Keeps On Giving - Inside Intercom. Retrieved May 20, 2016, from <a href="https://blog.intercom.io/why-continuous-deployment-just-keeps-on-giving/" target="_blank">https://blog.intercom.io/why-continuous-deployment-just-keeps-on-giving/</a>
+                </p>
+
+                <p>
+                    Linehan, D. (2016, March 25). Deploying the Teamwork Chat Web app. Retrieved May 20, 2016, from <a href="http://engineroom.teamwork.com/how-we-sped-up-serving-static-files-in-teamwork-chat/" target="_blank">http://engineroom.teamwork.com/how-we-sped-up-serving-static-files-in-teamwork-chat/</a>
+                </p>
+
+            </section>
+        </section>
+
+
+
+
+    </div><!-- closeout slides div -->
+</div><!-- closeout reveal div -->
+
+<!-- scripts for reveal.js -->
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+            { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+            { src: 'plugin/zoom-js/zoom.js', async: true },
+            { src: 'plugin/notes/notes.js', async: true }
+        ]
+    });
+
+</script>
+
+
+</body>
+</html>
